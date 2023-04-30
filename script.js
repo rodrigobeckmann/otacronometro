@@ -1,7 +1,6 @@
 
 
-let randomIndex = Math.floor(Math.random() * 3);
-console.log(randomIndex);
+
 
 // 2. This code loads the IFrame Player API code asynchronously.
 var tag = document.createElement('script');
@@ -53,6 +52,8 @@ const onYouTubeIframeAPIReady = () => {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
+    let randomIndex = Math.floor(Math.random() * 4);
+    console.log(randomIndex);
     event.target.playVideo();
     player.loadPlaylist({
         list: 'PLzf60jDZc1qtlUCwKldmm0l_dN5rAOypJ',
@@ -74,6 +75,7 @@ var done = false;
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING && !done) {
         player.setShuffle(shufflePlaylist = true);
+        player.setLoop(loopPlaylists = true);
         done = true;
     }
 }
@@ -93,7 +95,7 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
         }
-    }, 1000);   
+    }, 1000);
 }
 
 const submitTime = document.querySelector('#startBtn');
@@ -114,7 +116,16 @@ function ClearAllIntervals() {
 
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', () => {
+    const videoPlayer = document.querySelector('#player');
+    const main = document.querySelector('main');
+    videoPlayer.remove();
+    const newPlayer = document.createElement('div');
+    newPlayer.id = 'player';
+    main.appendChild(newPlayer);
     const time = document.querySelector('#timer');
     time.textContent = '00:00';
     ClearAllIntervals();
 })
+
+
+
