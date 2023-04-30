@@ -19,3 +19,11 @@ main {
     height: 100%;
 }
 
+.crono {
+    display: flex;
+}
+
+#timer {
+    font-size: 50px;
+}
+
