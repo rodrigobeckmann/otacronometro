@@ -94,8 +94,10 @@ function startTimer(duration, display) {
         display.textContent = minutes + ":" + seconds;
         if (--timer < 0) {
             timer = duration;
+            killPlayer();
         }
     }, 1000);
+    
 }
 
 const submitTime = document.querySelector('#startBtn');
@@ -116,6 +118,10 @@ function ClearAllIntervals() {
 
 const clearBtn = document.querySelector('#clearBtn');
 clearBtn.addEventListener('click', () => {
+    killPlayer();
+})
+
+const killPlayer = () => {
     const videoPlayer = document.querySelector('#player');
     const main = document.querySelector('main');
     videoPlayer.remove();
@@ -125,7 +131,6 @@ clearBtn.addEventListener('click', () => {
     const time = document.querySelector('#timer');
     time.textContent = '00:00';
     ClearAllIntervals();
-})
-
+}
 
 
