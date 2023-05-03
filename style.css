@@ -4,8 +4,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
 
-     
- } 
+
+}
 
 main {
     display: flex;
@@ -39,14 +39,18 @@ main div {
 #player {
     z-index: 0;
     position: fixed;
-    margin-top: 435px;
-    margin-left: 100px;
+    margin-top: 100px;
+    margin-left: 75px;
+    
 }
 
-
+#img {
+    height: 350px;
+}
 
 #mytv {
     width: 800px;
     z-index: 1;
     position: fixed;
 }
+

@@ -33,13 +33,13 @@ var player;
 const onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
         height: '360',
-        width: '640',
+        width: '510',
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         },
         playerVars: {
-            controls: '1',
+            controls: '0',
             disablekb: '1',
             rel: '0',
             autoplay: '1'
@@ -130,6 +130,7 @@ const killPlayer = () => {
     main.appendChild(newPlayer);
     const divPlayer = document.querySelector('#player');
     const img = document.createElement('img');
+    img.id = 'img'
     img.src = 'images/static.gif'
     divPlayer.appendChild(img);
     const time = document.querySelector('#timer');
