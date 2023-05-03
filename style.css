@@ -1,17 +1,18 @@
-body {
-    background-image: url(images/tv.png);
+/* body {
+    background-image: url(images/newtv.png);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
+    background-size: cover;
     background-attachment: fixed;
-}
+    background-position: 0px -400px;
+     */
+/* } */
 
 main {
-    margin-top: 110px;
-    margin-left: 400px;
-    margin-right: 400px;
-    height: 400px;
     display: flex;
-    justify-content: center;
+}
+
+main div {
+    display: flex;
 }
 
 #vid {
@@ -27,3 +28,24 @@ main {
     font-size: 50px;
 }
 
+/* #img {
+    z-index: 0;
+    position: fixed;
+    margin-top: 435px;
+    margin-left: 100px;
+} */
+
+#player {
+    z-index: 0;
+    position: fixed;
+    margin-top: 435px;
+    margin-left: 100px;
+}
+
+
+
+#mytv {
+    width: 800px;
+    z-index: 1;
+    position: fixed;
+}
