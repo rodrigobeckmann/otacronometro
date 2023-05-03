@@ -39,7 +39,7 @@ const onYouTubeIframeAPIReady = () => {
             'onStateChange': onPlayerStateChange
         },
         playerVars: {
-            controls: '0',
+            controls: '1',
             disablekb: '1',
             rel: '0',
             autoplay: '1'
