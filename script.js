@@ -128,6 +128,10 @@ const killPlayer = () => {
     const newPlayer = document.createElement('div');
     newPlayer.id = 'player';
     main.appendChild(newPlayer);
+    const divPlayer = document.querySelector('#player');
+    const img = document.createElement('img');
+    img.src = 'images/static.gif'
+    divPlayer.appendChild(img);
     const time = document.querySelector('#timer');
     time.textContent = '00:00';
     ClearAllIntervals();
