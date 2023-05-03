@@ -52,7 +52,7 @@ const onYouTubeIframeAPIReady = () => {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-    let randomIndex = Math.floor(Math.random() * 4);
+    let randomIndex = Math.floor(Math.random() * 12);
     console.log(randomIndex);
     event.target.playVideo();
     player.loadPlaylist({

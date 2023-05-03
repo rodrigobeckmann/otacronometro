@@ -54,3 +54,6 @@ main div {
     position: fixed;
 }
 
+footer {
+    position: absolute;
+}
