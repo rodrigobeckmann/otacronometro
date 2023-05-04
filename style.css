@@ -1,10 +1,8 @@
-body {
-    background-image: url(images/japan.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-
-
+#desk img {
+    width: 2100px;
+    position: fixed;
+    margin-top: 130px;
+    margin-left: -100px;
 }
 
 main {
@@ -23,10 +21,18 @@ main div {
 
 .crono {
     display: flex;
+    margin-left: 850px;
+    margin-top: 480px;
+    z-index: 8;
 }
 
 #timer {
-    font-size: 50px;
+    font-size: 100px;
+    z-index: 6;
+    color: white;
+    align-items: center;
+    margin-left: 15px;
+    
 }
 
 /* #img {
@@ -39,9 +45,9 @@ main div {
 #player {
     z-index: 0;
     position: fixed;
-    margin-top: 100px;
+    margin-top: 180px;
     margin-left: 75px;
-    
+
 }
 
 #img {
@@ -52,8 +58,23 @@ main div {
     width: 800px;
     z-index: 1;
     position: fixed;
+    margin-top: 80px;
 }
 
-footer {
-    position: absolute;
+#clock img {
+    z-index: 4;
+    width: 400px;
+    margin-left: 800px;
+    margin-top: 500px;
+    position: fixed;
+}
+
+#clock-minutes {
+    background-color: black;
+    width: 255px;
+    height: 100px;
+    z-index: 5;
+    position: fixed;
+    margin-left: 870px;
+    margin-top: 530px;
 }
