@@ -81,18 +81,28 @@ function startTimer(duration, display) {
             killPlayer();
         }
     }, 1000);
-    
+
 }
 
-const submitTime = document.querySelector('#startBtn');
-submitTime.addEventListener('click', () => {
-    const time = document.querySelector('#minutes');
-    ClearAllIntervals();
-    let duration = 60 * time.value; // Converter para segundos
-    display = document.querySelector('#timer'); // selecionando o timer
-    startTimer(duration, display); // iniciando o timer
-    onYouTubeIframeAPIReady();
-})
+const subBtn = () => {
+    const submitTime = document.querySelector('#startBtn');
+    submitTime.addEventListener('click', () => {
+        const timeValue = document.querySelector('#minutes')
+        if (timeValue.value > 0 && timeValue.value < 61) {
+            const time = document.querySelector('#minutes');
+            const crono = document.querySelector('#crono');
+            ClearAllIntervals();
+            let duration = 60 * time.value; // Converter para segundos
+            display = document.querySelector('#timer'); // selecionando o timer
+            startTimer(duration, display); // iniciando o timer
+            onYouTubeIframeAPIReady();
+            crono.remove();
+            createStopBtn();
+        } else {
+            alert('insira um valor entre 1 e 60');
+        }
+    })
+}
 
 function ClearAllIntervals() {
     done = false;
@@ -100,15 +110,17 @@ function ClearAllIntervals() {
         window.clearInterval(i);
 };
 
-
-const clearBtn = document.querySelector('#clearBtn');
-clearBtn.addEventListener('click', () => {
-    killPlayer();
-})
+const clrBtn = () => {
+    const clearBtn = document.querySelector('#clearBtn');
+    clearBtn.addEventListener('click', () => {
+        killPlayer();
+    })
+}
 
 const killPlayer = () => {
     const videoPlayer = document.querySelector('#player');
     const main = document.querySelector('main');
+    const crono = document.querySelector('#crono');
     videoPlayer.remove();
     const newPlayer = document.createElement('div');
     newPlayer.id = 'player';
@@ -122,6 +134,55 @@ const killPlayer = () => {
     time.textContent = '00:00';
     done = false;
     ClearAllIntervals();
+    crono.remove();
+    createCronoSection();
 }
+
+const createStopBtn = () => {
+    const clock = document.querySelector('#clock');
+    const stopBtn = document.createElement('button');
+    stopBtn.id = 'crono';
+    stopBtn.className = 'stopBtn';
+    stopBtn.innerText = 'STOP';
+    stopBtn.style.width = '140px';
+    stopBtn.style.justifyContent = 'center';
+    clock.prepend(stopBtn);
+    const btnStop = document.querySelector('.stopBtn');
+    btnStop.addEventListener('click', () => {
+        killPlayer();
+    })
+}
+
+const createCronoSection = () => {
+    const clock = document.querySelector('#clock');
+    const crono = document.createElement('section');
+    crono.id = 'crono';
+    clock.prepend(crono);
+    const startBtn = document.createElement('button');
+    startBtn.id = 'startBtn';
+    startBtn.innerText = 'iniciar';
+    crono.appendChild(startBtn);
+    const inputNumber = document.createElement('input');
+    inputNumber.id = 'minutes';
+    inputNumber.type = 'number';
+    inputNumber.max = '60';
+    inputNumber.min = '1';
+    crono.appendChild(inputNumber);
+    inputNumber.setAttribute('autofocus', true);
+    const clearBtn = document.createElement('button');
+    clearBtn.id = 'clearBtn';
+    clearBtn.innerText = 'limpar';
+    crono.appendChild(clearBtn);
+    subBtn();
+    clrBtn();
+
+}
+
+window.onload = () => {
+    createCronoSection();
+}
+
+
+
 
 
