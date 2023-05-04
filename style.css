@@ -38,17 +38,10 @@ main div {
     z-index: 6;
     color: white;
     align-items: center;
-    margin-left: 28px;
+    margin-left: 17px;
     font-family: 'Rajdhani', sans-serif;
     
 }
-
-/* #img {
-    z-index: 0;
-    position: fixed;
-    margin-top: 435px;
-    margin-left: 100px;
-} */
 
 #player {
     z-index: 0;

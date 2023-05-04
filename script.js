@@ -37,7 +37,6 @@ const onYouTubeIframeAPIReady = () => {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
     let randomIndex = Math.floor(Math.random() * 12);
-    console.log(randomIndex);
     event.target.playVideo();
     player.loadPlaylist({
         list: 'PLzf60jDZc1qtlUCwKldmm0l_dN5rAOypJ',
@@ -46,6 +45,7 @@ function onPlayerReady(event) {
         startSeconds: 0,
         suggestedQuality: 'default'
     });
+    
 
 }
 
@@ -168,7 +168,7 @@ const createCronoSection = () => {
     inputNumber.max = '60';
     inputNumber.min = '1';
     crono.appendChild(inputNumber);
-    inputNumber.setAttribute('autofocus', true);
+    inputNumber.setAttribute('autofocus','');
     const clearBtn = document.createElement('button');
     clearBtn.id = 'clearBtn';
     clearBtn.innerText = 'limpar';
