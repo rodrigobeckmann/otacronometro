@@ -1,5 +1,8 @@
 body {
-    margin-top: 70px;;
+    margin-top: 70px;
+    background-image: url(images/brickwall.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 #desk img {
@@ -35,7 +38,7 @@ main div {
     z-index: 6;
     color: white;
     align-items: center;
-    margin-left: 15px;
+    margin-left: 14px;
     
 }
 
@@ -81,4 +84,5 @@ main div {
     position: fixed;
     margin-left: 870px;
     margin-top: 530px;
+    border-radius: 10px;
 }
