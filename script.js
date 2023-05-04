@@ -22,7 +22,7 @@ const onYouTubeIframeAPIReady = () => {
             'onStateChange': onPlayerStateChange
         },
         playerVars: {
-            controls: '1',
+            controls: '0',
             disablekb: '1',
             rel: '0',
             autoplay: '1',
@@ -177,6 +177,20 @@ const createCronoSection = () => {
     clrBtn();
 
 }
+
+const volumeUp = document.querySelector('#volumeUp');
+volumeUp.addEventListener('click', () => {
+    const actualVolume = player.getVolume();
+    player.setVolume(actualVolume + 5);
+    console.log('up');
+})
+
+const volumeDown = document.querySelector('#volumeDown');
+volumeDown.addEventListener('click', () => {
+    const actualVolume = player.getVolume();
+    player.setVolume(actualVolume - 5);
+    console.log('down');
+})
 
 window.onload = () => {
     createCronoSection();
