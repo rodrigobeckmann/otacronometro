@@ -3,10 +3,10 @@ body {
 }
 
 #desk img {
-    width: 2100px;
+    width: 2000px;
     position: fixed;
-    margin-top: 130px;
-    margin-left: -100px;
+    margin-top: 530px;
+    margin-left: -50px;
 }
 
 main {

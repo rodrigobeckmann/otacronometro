@@ -13,23 +13,6 @@ firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 //    after the API code downloads.
 var player;
 
-// function onYouTubeIframeAPIReady() {
-//     player = new YT.Player('player', {
-//         height: '360',
-//         width: '640',
-//         events: {
-//             'onReady': onPlayerReady,
-//             'onStateChange': onPlayerStateChange
-//         },
-//         playerVars: {
-//             controls: '1',
-//             disablekb: '1',
-//             rel: '0',
-//             autoplay: '1'
-//         },
-//     });
-// }
-
 const onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
         height: '360',
@@ -42,7 +25,8 @@ const onYouTubeIframeAPIReady = () => {
             controls: '1',
             disablekb: '1',
             rel: '0',
-            autoplay: '1'
+            autoplay: '1',
+            loop: '1'
         },
     });
 }
@@ -71,11 +55,11 @@ function onPlayerReady(event) {
 // 5. The API calls this function when the player's state changes.
 //    The function indicates that when playing a video (state=1),
 //    the player should play for six seconds and then stop.
-var done = false;
+let done = false;
 function onPlayerStateChange(event) {
     if (event.data == YT.PlayerState.PLAYING && !done) {
-        player.setShuffle(shufflePlaylist = true);
-        player.setLoop(loopPlaylists = true);
+        event.target.setShuffle(true);
+        event.target.setLoop(true);
         done = true;
     }
 }
@@ -111,6 +95,7 @@ submitTime.addEventListener('click', () => {
 })
 
 function ClearAllIntervals() {
+    done = false;
     for (var i = 1; i < 99999; i++)
         window.clearInterval(i);
 };
@@ -135,6 +120,7 @@ const killPlayer = () => {
     divPlayer.appendChild(img);
     const time = document.querySelector('#timer');
     time.textContent = '00:00';
+    done = false;
     ClearAllIntervals();
 }
 
