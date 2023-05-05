@@ -14,9 +14,9 @@ main div {
 
 
 #crono {
-    display: flex;
+    /* display: flex;
     margin-left: 300px;
-    margin-top: 80px;
+    margin-top: 80px; */
     z-index: 8;
 }
 
@@ -80,7 +80,7 @@ main div {
     width: 500px;
     position: fixed;
     margin-left: 1200px;
-    margin-top: 220px;
+    margin-top: 310px;
 }
 
 .box2 {
@@ -96,6 +96,9 @@ main div {
     background-color: #00bfb6;
     margin-left: 1200px;
     border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    display: block;
 }
 
 .sb9:before {
@@ -116,7 +119,7 @@ main div {
     position: fixed;
     z-index: 7;
     margin-left: 860px;
-    margin-top: 260px;
+    margin-top: 533px;
     width: 160px;
    
 }
@@ -125,22 +128,27 @@ main div {
     -webkit-appearance: none; /* Override default look */
     appearance: none;
     margin-top: -12px; /* Centers thumb on the track */
-    background-color: #5cd5eb;
+    background-color: black;
     height: 2rem;
     width: 1rem; 
 border-radius: 3px;
  }
 
- input[type="range"]::-webkit-slider-runnable-track {
-    background: #053a5f;
+ #volume::-webkit-slider-runnable-track {
+    background: lightgray;
     height: 0.5rem;
     border-radius: 2px;
+    border: 1px solid black;
   }
 
-  input[type="range"] {
+  #volume {
     -webkit-appearance: none;
     appearance: none;
     background: transparent;
     cursor: pointer;
-    width: 15rem;
+   
   }
+   
+#qualquer {
+    z-index: 9;
+}

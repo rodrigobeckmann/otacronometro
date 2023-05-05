@@ -36,8 +36,10 @@ const onYouTubeIframeAPIReady = () => {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
+    const volume = document.querySelector('#volume').value;
     let randomIndex = Math.floor(Math.random() * 12);
     event.target.playVideo();
+    event.target.setVolume(volume);
     player.loadPlaylist({
         list: 'PLzf60jDZc1qtlUCwKldmm0l_dN5rAOypJ',
         listType: 'playlist',
@@ -139,7 +141,7 @@ const killPlayer = () => {
 }
 
 const createStopBtn = () => {
-    const clock = document.querySelector('#clock');
+    const clock = document.querySelector('#kohai-bubble');
     const stopBtn = document.createElement('button');
     stopBtn.id = 'crono';
     stopBtn.className = 'stopBtn';
@@ -154,7 +156,7 @@ const createStopBtn = () => {
 }
 
 const createCronoSection = () => {
-    const clock = document.querySelector('#clock');
+    const clock = document.querySelector('#kohai-bubble');
     const crono = document.createElement('section');
     crono.id = 'crono';
     clock.prepend(crono);
@@ -199,7 +201,7 @@ volume.addEventListener('input', (event) => {
 
 
 window.onload = () => {
-    createCronoSection();
+    // createCronoSection();
 }
 
 
