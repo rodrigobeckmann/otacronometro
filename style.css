@@ -27,7 +27,7 @@ main div {
     align-items: center;
     margin-left: 17px;
     font-family: 'Rajdhani', sans-serif;
-    
+
 }
 
 #player {
@@ -109,4 +109,11 @@ main div {
     border-bottom: 10px solid transparent;
     right: 50%;
     bottom: -23px;
-  }
+}
+
+#volume {
+    position: fixed;
+    z-index: 7;
+    margin-left: 880px;
+    margin-top: 260px;
+}

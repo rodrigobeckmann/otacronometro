@@ -45,7 +45,7 @@ function onPlayerReady(event) {
         startSeconds: 0,
         suggestedQuality: 'default'
     });
-    
+
 
 }
 
@@ -168,7 +168,7 @@ const createCronoSection = () => {
     inputNumber.max = '60';
     inputNumber.min = '1';
     crono.appendChild(inputNumber);
-    inputNumber.setAttribute('autofocus','');
+    inputNumber.setAttribute('autofocus', '');
     const clearBtn = document.createElement('button');
     clearBtn.id = 'clearBtn';
     clearBtn.innerText = 'limpar';
@@ -191,6 +191,12 @@ const createCronoSection = () => {
 //     player.setVolume(actualVolume - 5);
 //     console.log('down');
 // })
+
+const volume = document.querySelector('#volume');
+volume.addEventListener('input', (event) => {
+    player.setVolume(event.target.value);
+})
+
 
 window.onload = () => {
     createCronoSection();
