@@ -15,8 +15,8 @@ var player;
 
 const onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
-        height: '360',
-        width: '510',
+        height: '440',
+        width: '600',
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
@@ -119,7 +119,7 @@ const clrBtn = () => {
 
 const killPlayer = () => {
     const videoPlayer = document.querySelector('#player');
-    const main = document.querySelector('main');
+    const main = document.querySelector('#main-video');
     const crono = document.querySelector('#crono');
     videoPlayer.remove();
     const newPlayer = document.createElement('div');
@@ -178,19 +178,19 @@ const createCronoSection = () => {
 
 }
 
-const volumeUp = document.querySelector('#volumeUp');
-volumeUp.addEventListener('click', () => {
-    const actualVolume = player.getVolume();
-    player.setVolume(actualVolume + 5);
-    console.log('up');
-})
+// const volumeUp = document.querySelector('#volumeUp');
+// volumeUp.addEventListener('click', () => {
+//     const actualVolume = player.getVolume();
+//     player.setVolume(actualVolume + 5);
+//     console.log('up');
+// })
 
-const volumeDown = document.querySelector('#volumeDown');
-volumeDown.addEventListener('click', () => {
-    const actualVolume = player.getVolume();
-    player.setVolume(actualVolume - 5);
-    console.log('down');
-})
+// const volumeDown = document.querySelector('#volumeDown');
+// volumeDown.addEventListener('click', () => {
+//     const actualVolume = player.getVolume();
+//     player.setVolume(actualVolume - 5);
+//     console.log('down');
+// })
 
 window.onload = () => {
     createCronoSection();
