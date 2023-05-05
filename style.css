@@ -75,3 +75,10 @@ main div {
     margin-top: 108px;
     border-radius: 10px;
 }
+
+#kohai {
+    width: 500px;
+    position: fixed;
+    margin-left: 1200px;
+    margin-top: 220px;
+}
