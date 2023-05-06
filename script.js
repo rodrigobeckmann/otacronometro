@@ -171,12 +171,12 @@ const createCronoSection = () => {
     inputNumber.min = '1';
     crono.appendChild(inputNumber);
     inputNumber.setAttribute('autofocus', '');
-    const clearBtn = document.createElement('button');
-    clearBtn.id = 'clearBtn';
-    clearBtn.innerText = 'limpar';
-    crono.appendChild(clearBtn);
+    // const clearBtn = document.createElement('button');
+    // clearBtn.id = 'clearBtn';
+    // clearBtn.innerText = 'limpar';
+    // crono.appendChild(clearBtn);
     subBtn();
-    clrBtn();
+    
 
 }
 
@@ -201,7 +201,7 @@ volume.addEventListener('input', (event) => {
 
 
 window.onload = () => {
-    // createCronoSection();
+    createCronoSection();
 }
 
 
