@@ -7,14 +7,9 @@ body {
     margin-top: 41px;
 }
 
-
-
-
 main div {
     display: flex;
 }
-
-
 
 #crono {
     display: flex;
@@ -61,8 +56,6 @@ main div {
     position: fixed;
     margin-top: 80px;
 }
-
-
 
 #clock input {
     width: 35px;
@@ -161,4 +154,55 @@ border-radius: 3px;
 
 #minutes {
     width: 150px;
+}
+
+@media screen and (max-width: 1360px) and (min-width: 1360px) {
+ 
+#desktop-img {
+    width: 100%;
+}
+
+#volume {
+    width: 120px;
+    margin-left: 605px;
+    margin-top: 380px;
+}
+
+#img {
+    width: 420px;
+    height: 380px;
+    margin-left: -20px;
+    margin-top: -0px;
+}
+
+#clock-minutes {
+    width: 170px;
+    height: 60px;
+    margin-left: 190px;
+    margin-top: 82px;
+}
+
+#timer {
+    font-size: 60px;
+}
+
+#kohai {
+    width: 400px;
+    margin-left: 800px;
+    margin-top: 270px;
+}
+
+.box2 {
+    width: 200px;
+    margin-left: 900px;
+    margin-top: 80px;
+}
+
+#player {
+    width: 410px;
+    height: 380px;
+    margin-top: 170px;
+    margin-left: 160px;
+}
+
 }
