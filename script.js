@@ -81,6 +81,8 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
             killPlayer();
+            const audio = new Audio('sounds/alarm.mp3');
+            audio.play();
         }
     }, 1000);
 
@@ -175,7 +177,7 @@ const createCronoSection = () => {
     crono.appendChild(inputNumber);
     const startBtn = document.createElement('button');
     startBtn.id = 'startBtn';
-    startBtn.innerText = 'iniciar';
+    startBtn.innerText = 'BEGIN';
     crono.appendChild(startBtn);
     
     subBtn();
@@ -201,6 +203,8 @@ const volume = document.querySelector('#volume');
 volume.addEventListener('input', (event) => {
     player.setVolume(event.target.value);
 })
+
+
 
 
 window.onload = () => {
