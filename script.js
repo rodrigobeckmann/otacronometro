@@ -37,7 +37,7 @@ const onYouTubeIframeAPIReady = () => {
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
     const volume = document.querySelector('#volume').value;
-    let randomIndex = Math.floor(Math.random() * 12);
+    let randomIndex = Math.floor(Math.random() * 19);
     event.target.playVideo();
     event.target.setVolume(volume);
     player.loadPlaylist({
@@ -112,17 +112,13 @@ function ClearAllIntervals() {
         window.clearInterval(i);
 };
 
-const clrBtn = () => {
-    const clearBtn = document.querySelector('#clearBtn');
-    clearBtn.addEventListener('click', () => {
-        killPlayer();
-    })
-}
+
 
 const killPlayer = () => {
     const videoPlayer = document.querySelector('#player');
     const main = document.querySelector('#main-video');
     const crono = document.querySelector('#crono');
+    const kohaiSpeech = document.querySelector('#kohai-speech');
     videoPlayer.remove();
     const newPlayer = document.createElement('div');
     newPlayer.id = 'player';
@@ -137,6 +133,7 @@ const killPlayer = () => {
     done = false;
     ClearAllIntervals();
     crono.remove();
+    kohaiSpeech.remove();
     createCronoSection();
 }
 
@@ -149,6 +146,10 @@ const createStopBtn = () => {
     stopBtn.style.width = '140px';
     stopBtn.style.justifyContent = 'center';
     clock.prepend(stopBtn);
+    const kohaiSpeech = document.createElement('p');
+    kohaiSpeech.id = 'kohai-speech';
+    kohaiSpeech.innerText = 'Me avise se quiser parar antes da hora.'
+    clock.prepend(kohaiSpeech);
     const btnStop = document.querySelector('.stopBtn');
     btnStop.addEventListener('click', () => {
         killPlayer();
@@ -160,21 +161,23 @@ const createCronoSection = () => {
     const crono = document.createElement('section');
     crono.id = 'crono';
     clock.prepend(crono);
-    const startBtn = document.createElement('button');
-    startBtn.id = 'startBtn';
-    startBtn.innerText = 'iniciar';
-    crono.appendChild(startBtn);
+    const kohaiSpeech = document.createElement('p');
+    kohaiSpeech.id = 'kohai-speech';
+    kohaiSpeech.innerText = 'Olá Senpai, de quantos minutos você precisa?'
+    crono.appendChild(kohaiSpeech);
     const inputNumber = document.createElement('input');
     inputNumber.id = 'minutes';
     inputNumber.type = 'number';
     inputNumber.max = '60';
     inputNumber.min = '1';
-    crono.appendChild(inputNumber);
     inputNumber.setAttribute('autofocus', '');
-    // const clearBtn = document.createElement('button');
-    // clearBtn.id = 'clearBtn';
-    // clearBtn.innerText = 'limpar';
-    // crono.appendChild(clearBtn);
+    inputNumber.setAttribute('placeholder', 'valor entre 1 e 60');
+    crono.appendChild(inputNumber);
+    const startBtn = document.createElement('button');
+    startBtn.id = 'startBtn';
+    startBtn.innerText = 'iniciar';
+    crono.appendChild(startBtn);
+    
     subBtn();
     
 

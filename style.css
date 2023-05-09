@@ -1,7 +1,10 @@
 body {
     background-image: url(images/brickwall.jpg);
     background-repeat: no-repeat;
+    background-position: 100%;
+    background-attachment: fixed;
     background-size: cover;
+    margin-top: 41px;
 }
 
 
@@ -14,10 +17,10 @@ main div {
 
 
 #crono {
-    /* display: flex;
-    margin-left: 300px;
-    margin-top: 80px; */
+    display: flex;
     z-index: 8;
+    flex-direction: column;
+    align-items: center;
 }
 
 #timer {
@@ -77,10 +80,10 @@ main div {
 }
 
 #kohai {
-    width: 500px;
+    width: 600px;
     position: fixed;
     margin-left: 1200px;
-    margin-top: 310px;
+    margin-top: 360px;
 }
 
 .box2 {
@@ -94,11 +97,14 @@ main div {
     font-family: arial;
     position: relative;
     background-color: #00bfb6;
-    margin-left: 1200px;
+    margin-left: 1300px;
     border-radius: 5px;
     position: fixed;
     z-index: 1;
-    display: block;
+    display: flex;
+    margin-top: 170px;
+    flex-direction: column;
+    align-items: center;
 }
 
 .sb9:before {
@@ -151,4 +157,8 @@ border-radius: 3px;
    
 #qualquer {
     z-index: 9;
+}
+
+#minutes {
+    width: 150px;
 }
