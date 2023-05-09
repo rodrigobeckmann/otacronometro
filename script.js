@@ -15,14 +15,14 @@ var player;
 
 const onYouTubeIframeAPIReady = () => {
     player = new YT.Player('player', {
-        height: '360',
-        width: '510',
+        height: '440',
+        width: '600',
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange
         },
         playerVars: {
-            controls: '1',
+            controls: '0',
             disablekb: '1',
             rel: '0',
             autoplay: '1',
@@ -36,9 +36,10 @@ const onYouTubeIframeAPIReady = () => {
 
 // 4. The API will call this function when the video player is ready.
 function onPlayerReady(event) {
-    let randomIndex = Math.floor(Math.random() * 12);
-    console.log(randomIndex);
+    const volume = document.querySelector('#volume').value;
+    let randomIndex = Math.floor(Math.random() * 19);
     event.target.playVideo();
+    event.target.setVolume(volume);
     player.loadPlaylist({
         list: 'PLzf60jDZc1qtlUCwKldmm0l_dN5rAOypJ',
         listType: 'playlist',
@@ -46,6 +47,7 @@ function onPlayerReady(event) {
         startSeconds: 0,
         suggestedQuality: 'default'
     });
+
 
 }
 
@@ -79,6 +81,8 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
             killPlayer();
+            const audio = new Audio('sounds/alarm.mp3');
+            audio.play();
         }
     }, 1000);
 
@@ -110,17 +114,13 @@ function ClearAllIntervals() {
         window.clearInterval(i);
 };
 
-const clrBtn = () => {
-    const clearBtn = document.querySelector('#clearBtn');
-    clearBtn.addEventListener('click', () => {
-        killPlayer();
-    })
-}
+
 
 const killPlayer = () => {
     const videoPlayer = document.querySelector('#player');
-    const main = document.querySelector('main');
+    const main = document.querySelector('#main-video');
     const crono = document.querySelector('#crono');
+    const kohaiSpeech = document.querySelector('#kohai-speech');
     videoPlayer.remove();
     const newPlayer = document.createElement('div');
     newPlayer.id = 'player';
@@ -135,11 +135,12 @@ const killPlayer = () => {
     done = false;
     ClearAllIntervals();
     crono.remove();
+    kohaiSpeech.remove();
     createCronoSection();
 }
 
 const createStopBtn = () => {
-    const clock = document.querySelector('#clock');
+    const clock = document.querySelector('#kohai-bubble');
     const stopBtn = document.createElement('button');
     stopBtn.id = 'crono';
     stopBtn.className = 'stopBtn';
@@ -147,6 +148,10 @@ const createStopBtn = () => {
     stopBtn.style.width = '140px';
     stopBtn.style.justifyContent = 'center';
     clock.prepend(stopBtn);
+    const kohaiSpeech = document.createElement('p');
+    kohaiSpeech.id = 'kohai-speech';
+    kohaiSpeech.innerText = 'Me avise se quiser parar antes da hora.'
+    clock.prepend(kohaiSpeech);
     const btnStop = document.querySelector('.stopBtn');
     btnStop.addEventListener('click', () => {
         killPlayer();
@@ -154,29 +159,53 @@ const createStopBtn = () => {
 }
 
 const createCronoSection = () => {
-    const clock = document.querySelector('#clock');
+    const clock = document.querySelector('#kohai-bubble');
     const crono = document.createElement('section');
     crono.id = 'crono';
     clock.prepend(crono);
-    const startBtn = document.createElement('button');
-    startBtn.id = 'startBtn';
-    startBtn.innerText = 'iniciar';
-    crono.appendChild(startBtn);
+    const kohaiSpeech = document.createElement('p');
+    kohaiSpeech.id = 'kohai-speech';
+    kohaiSpeech.innerText = 'Olá Senpai, de quantos minutos você precisa?'
+    crono.appendChild(kohaiSpeech);
     const inputNumber = document.createElement('input');
     inputNumber.id = 'minutes';
     inputNumber.type = 'number';
     inputNumber.max = '60';
     inputNumber.min = '1';
+    inputNumber.setAttribute('autofocus', '');
+    inputNumber.setAttribute('placeholder', 'valor entre 1 e 60');
     crono.appendChild(inputNumber);
-    inputNumber.setAttribute('autofocus', true);
-    const clearBtn = document.createElement('button');
-    clearBtn.id = 'clearBtn';
-    clearBtn.innerText = 'limpar';
-    crono.appendChild(clearBtn);
+    const startBtn = document.createElement('button');
+    startBtn.id = 'startBtn';
+    startBtn.innerText = 'BEGIN';
+    crono.appendChild(startBtn);
+    
     subBtn();
-    clrBtn();
+    
 
 }
+
+// const volumeUp = document.querySelector('#volumeUp');
+// volumeUp.addEventListener('click', () => {
+//     const actualVolume = player.getVolume();
+//     player.setVolume(actualVolume + 5);
+//     console.log('up');
+// })
+
+// const volumeDown = document.querySelector('#volumeDown');
+// volumeDown.addEventListener('click', () => {
+//     const actualVolume = player.getVolume();
+//     player.setVolume(actualVolume - 5);
+//     console.log('down');
+// })
+
+const volume = document.querySelector('#volume');
+volume.addEventListener('input', (event) => {
+    player.setVolume(event.target.value);
+})
+
+
+
 
 window.onload = () => {
     createCronoSection();

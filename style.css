@@ -1,65 +1,54 @@
 body {
-    margin-top: 130px;
     background-image: url(images/brickwall.jpg);
     background-repeat: no-repeat;
+    background-position: 100%;
+    background-attachment: fixed;
     background-size: cover;
-}
-
-#desk img {
-    width: 2000px;
-    position: fixed;
-    margin-top: 530px;
-    margin-left: -50px;
-}
-
-main {
-    display: flex;
-    margin-left: 500px;
+    margin-top: 41px;
 }
 
 main div {
     display: flex;
 }
 
-#vid {
-    width: 100%;
-    height: 100%;
-}
-
 #crono {
     display: flex;
-    margin-left: 925px;
-    margin-top: 486px;
     z-index: 8;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
 }
 
 #timer {
-    font-size: 100px;
+    font-size: 80px;
     z-index: 6;
     color: white;
     align-items: center;
-    margin-left: 28px;
+    margin-left: 17px;
     font-family: 'Rajdhani', sans-serif;
-    
-}
 
-/* #img {
-    z-index: 0;
-    position: fixed;
-    margin-top: 435px;
-    margin-left: 100px;
-} */
+}
 
 #player {
     z-index: 0;
     position: fixed;
-    margin-top: 180px;
-    margin-left: 75px;
+    margin-top: 280px;
+    margin-left: 220px;
 
 }
 
+#desktop-img {
+    z-index: 1;
+    position: fixed;
+    margin-left: -8px;
+}
+
 #img {
-    height: 350px;
+    height: 420px;
+    margin-top: 10px;
+    margin-left: -20px;
+    z-index: 0;
+    position: fixed;
 }
 
 #mytv {
@@ -69,25 +58,152 @@ main div {
     margin-top: 80px;
 }
 
-#clock img {
-    z-index: 4;
-    width: 400px;
-    margin-left: 800px;
-    margin-top: 500px;
-    position: fixed;
-}
-
 #clock input {
     width: 35px;
 }
 
 #clock-minutes {
     background-color: black;
-    width: 250px;
+    width: 220px;
     height: 100px;
-    z-index: 5;
+    z-index: 0;
     position: fixed;
-    margin-left: 872px;
-    margin-top: 530px;
+    margin-left: 280px;
+    margin-top: 108px;
     border-radius: 10px;
+}
+
+#kohai {
+    width: 600px;
+    position: fixed;
+    margin-left: 1200px;
+    margin-top: 360px;
+}
+
+.box2 {
+    width: 300px;
+    margin: 50px auto;
+    border: 4px solid #00bfb6;
+    padding: 20px;
+    text-align: center;
+    font-weight: 900;
+    color: black;
+    font-family: arial;
+    position: relative;
+    background-color: #00bfb6;
+    margin-left: 1300px;
+    border-radius: 5px;
+    position: fixed;
+    z-index: 1;
+    display: flex;
+    margin-top: 170px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.sb9:before {
+    content: "";
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #00bfb6;
+    border-bottom: 10px solid transparent;
+    right: 50%;
+    bottom: -23px;
+}
+
+
+#volume {
+    position: fixed;
+    z-index: 7;
+    margin-left: 860px;
+    margin-top: 533px;
+    width: 160px;
+   
+}
+
+#volume::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -12px; /* Centers thumb on the track */
+    background-color: black;
+    height: 2rem;
+    width: 1rem; 
+border-radius: 3px;
+ }
+
+ #volume::-webkit-slider-runnable-track {
+    background: lightgray;
+    height: 0.5rem;
+    border-radius: 2px;
+    border: 1px solid black;
+  }
+
+  #volume {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+   
+  }
+   
+#qualquer {
+    z-index: 9;
+}
+
+#minutes {
+    width: 150px;
+}
+
+@media screen and (max-width: 1360px) and (min-width: 1360px) {
+ 
+#desktop-img {
+    width: 100%;
+}
+
+#volume {
+    width: 120px;
+    margin-left: 605px;
+    margin-top: 380px;
+}
+
+#img {
+    width: 420px;
+    height: 380px;
+    margin-left: -20px;
+    margin-top: -0px;
+}
+
+#clock-minutes {
+    width: 170px;
+    height: 60px;
+    margin-left: 190px;
+    margin-top: 82px;
+}
+
+#timer {
+    font-size: 60px;
+}
+
+#kohai {
+    width: 400px;
+    margin-left: 800px;
+    margin-top: 270px;
+}
+
+.box2 {
+    width: 200px;
+    margin-left: 900px;
+    margin-top: 80px;
+}
+
+#player {
+    width: 410px;
+    height: 380px;
+    margin-top: 170px;
+    margin-left: 160px;
+}
+
 }
